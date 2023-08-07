@@ -1,11 +1,7 @@
 import random
 
 def game_instructions():
-    print('Bienvenido al Juego piedra, papel o tijer!!!...')
-    print('Tendras que ganar 3 puntos para vecer a la computadora')
-    print('Tienes 3 opciones para jugar: piedra que vence a tijera, tijera que corta papel o papel que envuelve la roca')
-    print('Tu elegiras una opcion al igual que la computadora y por cada round uno de los dos sera el ganadora de cada batalla')
-    print('Al finalizar las batallas se hara un conteo para descubrir al ganador absoluto')
+    print('Bienvenido al Juego piedra, papel o tijera!!!...\n Tendras que ganar 3 puntos para vecer a la computadora. \n Tienes 3 opciones para jugar: piedra que vence a tijera, tijera que corta papel o papel que envuelve la roca. \n Tu elegiras una opcion al igual que la computadora y por cada round uno de los dos sera el ganadora de cada batalla. \n Al finalizar las batallas se hara un conteo para descubrir al ganador absoluto.')
     return
 
 def user_name():
@@ -36,7 +32,7 @@ def check_rules(user_option, computer_option, user_wins, computer_wins, user):
     elif user_option == 'Piedra':
         if computer_option == 'Tijera':
             print('La piedra rompe la Tijera')
-            print(user, ' gana esta ronda!')
+            print(user), ' gana esta ronda!'
             user_wins += 1
         else:
             print('El papel envuelve a la piedra')
@@ -88,5 +84,3 @@ def run_game():
         if user_wins == 3:
             print(user, 'es el ganador definitivo!!!')
             break
-
-run_game()

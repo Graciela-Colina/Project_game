@@ -8,7 +8,10 @@ def game_instructions():
     print('Al finalizar las batallas se hara un conteo para descubrir al ganador absoluto')
     return
 
-
+def user_name():
+    user = input('Escribe tu nombre =>')
+    user = user.capitalize()
+    return user
 
 def choose_options():
     options = ('Piedra', 'Papel', 'Tijera')
@@ -26,14 +29,14 @@ def choose_options():
     return user_option, computer_option
 
 
-def check_rules(user_option, computer_option, user_wins, computer_wins):
+def check_rules(user_option, computer_option, user_wins, computer_wins, user):
   
     if user_option == computer_option:
         print('Empate!')
     elif user_option == 'Piedra':
         if computer_option == 'Tijera':
             print('La piedra rompe la Tijera')
-            print('El usuario gana esta ronda!')
+            print(user, ' gana esta ronda!')
             user_wins += 1
         else:
             print('El papel envuelve a la piedra')
@@ -42,7 +45,7 @@ def check_rules(user_option, computer_option, user_wins, computer_wins):
     elif user_option == 'Papel':
         if computer_option == 'Piedra':
             print('El papel envuelve la piedra')
-            print('El usuario gana esta ronda')
+            print(user, 'gana esta ronda')
             user_wins += 1
         else:
             print('La tijera corta a papel')
@@ -51,7 +54,7 @@ def check_rules(user_option, computer_option, user_wins, computer_wins):
     elif user_option == 'Tijera':
         if computer_option == 'Papel':
             print('La tijera corta el papel')
-            print('El usuario gana esta ronda!')
+            print(user, 'gana esta ronda!')
             user_wins += 1
         else:
             print('la piedra destruye la tijera')
@@ -62,7 +65,7 @@ def check_rules(user_option, computer_option, user_wins, computer_wins):
 def run_game():
   
     game_instructions()  
-  
+    user = user_name()
     computer_wins = 0
     user_wins = 0  
     rounds = 1
@@ -72,18 +75,18 @@ def run_game():
         print('*' * 10)
 
         print('computer_wins', computer_wins)
-        print('user_wins', user_wins)
+        print(user, user_wins)
         rounds += 1
 
         user_option, computer_option = choose_options()
-        user_wins, computer_wins = check_rules(user_option, computer_option, user_wins, computer_wins)
+        user_wins, computer_wins = check_rules(user_option, computer_option, user_wins, computer_wins, user)
 
         if computer_wins == 3:
             print('La computadora es el ganador definitivo!!!')
             break
 
         if user_wins == 3:
-            print('El usuario es el ganador definitivo!!!')
+            print(user, 'es el ganador definitivo!!!')
             break
 
 run_game()
